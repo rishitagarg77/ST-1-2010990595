@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .head {
+            height: 5vh;
+            margin: auto;
+            padding: 2rem;
+            color: whitesmoke;
+            font-size: larger;
+            background-color: darkcyan;
+            width: 60%;
+        }
+
+        .form {
+            width: 60%;
+            /* text-align: center; */
+            margin: auto;
+            border: 1px solid black;
+            padding : 2rem;
+        }
+
+        .item {
+            text-align: center;
+            padding: 1rem;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .buttonsac{
+            margin : auto;
+            text-align: center;
+            padding : 2rem;
+        }
+        .remarks{
+            text-align: center;
+            font-size: 10px;
+            color : red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=">container">
+        <div class="head">
+            ALL THE FIELDS ARE MADATORY
+        </div>
+        <div class="form">
+            <form action="" method="post" class="center">
+
+
+                <div class="item">
+                    <label for="fname" class="field">FirstName</label>
+                    <input type="text" class="entry" id="fname" placeholder="First Name">
+                </div>
+                <div class="remarks" id="fnameC"></div>
+
+
+                <div class="item">
+                    <label for="lname" class="field">LastName</label>
+                    <input type="text" class="entry" id="lname" placeholder="Last Name">
+                </div>
+                <div class="remarks" id="lnamec"></div>
+
+
+                <div class="item">
+                    <label class="field">Gender</label>
+                    <div class="part">
+                        <input type="radio" class="entry" id="Male" value="MALE" name="gender" checked>
+                        <label for="Male" class="gender">Male</label>
+                        <input type="radio" class="entry" id="Female" value="FEMALE" name="gender">
+                        <label for="Female" class="gender">Female</label>
+                    </div>
+
+                </div>
+                <div class="remarks" id="genderc"></div>
+
+
+                <div class="item">
+                    <label for="address" class="field">Address</label>
+                    <textarea class="entry" id="address" placeholder="Address" rows=10 cols=20></textarea>
+                </div>
+                <div class="remarks" id="addressc"></div>
+
+
+                <div class="item">
+                    <label for="country" class="field">Country</label>
+                    <div class="part">
+                        <select name="" id="country" class="entry">
+
+                            <option value="India">INDIA</option>
+                            <option value="France">FRANCE</option>
+                            <option value="Turkey">TURKEY</option>
+                            <option value="Canada">CANADA</option>
+                            <option value="Finland">FINLAND</option>
+                            <option value="Germany">GEMANY</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="remarks" id="countryc"></div>
+
+
+                <div class="item">
+
+                    <label for="pnumber" class="field">Mobile Number</label>
+                    <input type="number" class="entry" id="mobile" placeholder="Mobile Number">
+                </div>
+                <div class="remarks" id="mobilec"></div>
+
+
+                <div class="item">
+                    <label for="email" class="field">Email</label>
+                    <input type="email" class="entry" id="email" placeholder="Email Id">
+                </div>
+                <div class="remarks" id="emailc"></div>
+
+
+                <div class="item">
+                    <label for="Password" class="field">Password</label>
+                    <input type="password" class="entry" id="Password" placeholder="Enter the Password">
+                </div>
+                <div class="remarks" id="passwordc"></div>
+
+
+                <div class="item">
+                    <label for="Password2" class="field">Pasword Confermation</label>
+                    <input type="password" class="entry" id="Password2" placeholder="Re-Enter the Password">
+                </div>
+                <div class="remarks" id="passwordrec"></div>
+
+
+                <div class="buttonsac">
+                    <input type="reset" value="RESET">
+                    <input type="button" value="SUBMIT" id = "submit12">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        let firstName = document.getElementById("fname").value;
+        console.log(firstName)
+        let lastName = document.getElementById("lname").value;
+        let gender = document.getElementsByName("gender").value;
+        let address = document.getElementById("address").value;
+        let country = document.getElementById("country");
+        country = country.options[country.selectedIndex].value;
+        console.log(country);
+        let mobile = document.getElementById("mobile").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("Password").value;
+        let password2 = document.getElementById("Password2").value;
+        //document.getElementById("fnameC").innerHTML += "please Fill out this field";
+
+        document.getElementById("fname").addEventListener("click", function(){
+            document.getElementById("fnameC").innerHTML = '';
+        })
+
+        document.getElementById("lname").addEventListener("click", function(e){
+            document.getElementById("lnamec").innerText = ' ';
+            firstName = document.getElementById("fname").value
+            document.getElementById("fnameC").innerText = ' ';
+            if(firstName == "")
+            {
+            
+            document.getElementById("fnameC").innerText += "please Fill out this field";}
+        })
+
+        document.getElementById("address").addEventListener("click", function(e){
+            document.getElementById("addressc").innerText = ' ';
+            gender = document.getElementsByName("gender").value;
+            document.getElementById("genderc").innerText = ' ';
+            if(gender == "")
+            {
+            
+            document.getElementById("genderc").innerText += "please Fill out this field";}
+        })
+
+        document.getElementById("country").addEventListener("click", function(e){
+            document.getElementById("countryc").innerText = ' ';
+            document.getElementById("addressc").innerText = ' ';
+            address = document.getElementById("address").value;
+            if(address == "")
+            document.getElementById("addressc").innerText += "please Fill out this field";
+        })
+
+        document.getElementById("mobile").addEventListener("click", function(e){
+            document.getElementById("mobilec").innerText = ' ';
+            country = document.getElementById("country");
+            country = country.options[country.selectedIndex].value;
+            document.getElementById("countryc").innerText = ' '
+            if(country == "")
+            document.getElementById("countryc").innerText += "please Fill out this field";
+        })
+
+        document.getElementById("email").addEventListener("click", function(e){
+            document.getElementById("emailc").innerText = ' ';
+            mobile = document.getElementById("mobile").value;
+            document.getElementById("mobilec").innerText = ' '
+            if(mobile == "")
+            document.getElementById("mobilec").innerText += "please Fill out this field";
+        })
+
+        document.getElementById("Password").addEventListener("click", function(e){
+            document.getElementById("passwordc").innerText = ' ';
+            email = document.getElementById("email").value;
+            document.getElementById("emailc").innerText = ' '
+            if(email == "")
+            document.getElementById("emailc").innerText += "please Fill out this field";
+        })
+
+        document.getElementById("Password2").addEventListener("click", function(){
+            document.getElementById("passwordrec").innerHTML = ' ';
+            password = document.getElementById("Password").value;
+            document.getElementById("passwordc").innerText = ' '
+            if(password == "")
+            document.getElementById("passwordc").innerText += "please Fill out this field";
+        })
+
+        let flag = true
+        document.getElementById("submit12").addEventListener("click", function(){
+            let firstName = document.getElementById("fname").value;
+            console.log(firstName)
+            let lastName = document.getElementById("lname").value;
+            let gender = document.getElementsByName("gender").value;
+            let address = document.getElementById("address").value;
+            let country = document.getElementById("country");
+            country = country.options[country.selectedIndex].value;
+            console.log(country);
+            let mobile = document.getElementById("mobile").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("Password").value;
+            let password2 = document.getElementById("Password2").value;
+
+            if(password != password2)
+            alert("both the passwords should match")
+            if(firstName == "" || lastName == "" || address == "" || country == "" || mobile == "" || email == "" || password == "" || password2 == "")
+            {
+                alert("fill all the fields")
+            }
+        })
+
+        
+        
+    </script>
+
+</body>
+
+</html>
